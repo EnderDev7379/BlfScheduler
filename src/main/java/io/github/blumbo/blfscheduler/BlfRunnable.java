@@ -1,6 +1,6 @@
 package io.github.blumbo.blfscheduler;
 
-public abstract class BlfRunnable implements BlfTask {
+public abstract class BlfRunnable implements Runnable {
 
     boolean isCancelled;
     boolean isRepeating;

@@ -58,7 +58,7 @@ public class BlfScheduler implements ModInitializer {
         return runnable;
     }
 
-    protected static void tick() {
+    public static void tick() {
         List<BlfRunnable> currentTasks = runnableMap.remove(ticks);
         if (currentTasks != null) {
             for (BlfRunnable runnable : currentTasks) {

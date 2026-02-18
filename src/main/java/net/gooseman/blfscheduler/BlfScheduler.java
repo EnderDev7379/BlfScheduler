@@ -25,7 +25,12 @@ public class BlfScheduler implements ModInitializer {
      * @return Runnable specified as parameter.
      */
     public static BlfRunnable delay(long delay, @NotNull Runnable runnable) {
-        return delay(delay, (BlfRunnable) runnable);
+        return delay(delay, new BlfRunnable() {
+            @Override
+            public void run() {
+                runnable.run();
+            }
+        });
     }
 
     /**
@@ -55,7 +60,12 @@ public class BlfScheduler implements ModInitializer {
      * @return Runnable specified as parameter.
      */
     public static BlfRunnable repeat(long delay, long period, @NotNull Runnable runnable) {
-        return repeat(delay, period, (BlfRunnable) runnable);
+        return repeat(delay, period, new BlfRunnable() {
+            @Override
+            public void run() {
+                runnable.run();
+            }
+        });
     }
 
     /**

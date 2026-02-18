@@ -1,9 +1,8 @@
-package io.github.blumbo.blfscheduler;
+package net.gooseman.blfscheduler;
 
 import com.mojang.logging.LogUtils;
 import net.fabricmc.api.ModInitializer;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
 
 import java.util.ArrayList;
@@ -73,8 +72,8 @@ public class BlfScheduler implements ModInitializer {
         runnable.run();
         if (runnable.isCancelled || !runnable.isRepeating) return;
 
-        Long period = properPeriodCheck(runnable.period);
-        if (period == null) return;
+        long period = properPeriodCheck(runnable.period);
+        if (period == -1) return;
         runnable.period = period;
 
         long time = ticks + runnable.period;
@@ -101,10 +100,9 @@ public class BlfScheduler implements ModInitializer {
         return delay;
     }
 
-    @Nullable
-    private static Long properPeriodCheck(@NotNull Long period) {
+    private static long properPeriodCheck(long period) {
         if (period < 0) {
-            period = null;
+            period = -1;
             LOGGER.warn("Tried to repeat task with negative period. Cancelled task.");
         } else if (period == 0) {
             period = 1L;

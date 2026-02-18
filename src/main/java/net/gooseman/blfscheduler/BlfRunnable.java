@@ -1,4 +1,4 @@
-package io.github.blumbo.blfscheduler;
+package net.gooseman.blfscheduler;
 
 public abstract class BlfRunnable implements Runnable {
 

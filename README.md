@@ -1,4 +1,7 @@
 # BlfScheduler (Bukkit-Like Fabric Scheduler)
+
+Original by [Blumbo](https://github.com/Blumbo)
+
 A Fabric library mod that allows task scheduling like with Bukkit!  
 A convenient tool for some types of Minecraft servers.  
 Tasks are not saved and therefore cancelled upon server stop.
